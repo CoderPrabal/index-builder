@@ -44,4 +44,12 @@ def create_tables():
     );
     """)
 
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS index_performance (
+        date DATE PRIMARY KEY,
+        daily_return FLOAT,
+        cumulative_return FLOAT,
+    );
+    """)
+
     conn.close()

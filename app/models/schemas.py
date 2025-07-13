@@ -1,6 +1,7 @@
-from pydantic import BaseModel
 from datetime import date
 from typing import List
+
+from pydantic import BaseModel
 
 
 class StockBase(BaseModel):
@@ -31,3 +32,9 @@ class IndexResponse(BaseModel):
     date: date
     index_value: float
     constituents: List[IndexEntry]
+
+
+class IndexPerformance(BaseModel):
+    date: date
+    daily_return: float
+    cumulative_return: float

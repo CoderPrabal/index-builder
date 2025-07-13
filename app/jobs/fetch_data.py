@@ -1,7 +1,6 @@
 import yfinance as yf
 import pandas as pd
 from app.utils.db import get_connection, init_db
-from datetime import datetime
 
 TOP_STOCKS = [
     "AAPL", "MSFT", "AMZN", "GOOGL", "META", "NVDA", "TSLA", "BRK-B", "UNH", "JNJ",
@@ -9,7 +8,7 @@ TOP_STOCKS = [
     # Add more if needed
 ]
 
-def fetch_market_data(symbols, period="35d"):
+def fetch_market_data(symbols, period="100d"):
     all_data = []
 
     for symbol in symbols:
@@ -56,7 +55,7 @@ def load_into_duckdb(df):
 
 if __name__ == "__main__":
     init_db()
-    df = fetch_market_data(TOP_STOCKS, period="35d")
+    df = fetch_market_data(TOP_STOCKS, period="100d")
     df["date"] = pd.to_datetime(df["date"]).dt.date
     df = df.drop_duplicates(subset=["symbol", "date"])
     print(df.head())  # Check content

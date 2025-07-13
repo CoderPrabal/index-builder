@@ -1,4 +1,4 @@
-HedgeEngineer is a backend service that dynamically builds and tracks a custom equal-weighted stock index consisting of the top 100 US stocks by daily market capitalization.
+IndexBuilder is a backend service that dynamically builds and tracks a custom equal-weighted stock index consisting of the top 100 US stocks by daily market capitalization.
 
 Built using FastAPI, DuckDB, Redis, and Docker, this project demonstrates:
 
